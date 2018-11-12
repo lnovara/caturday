@@ -1,14 +1,13 @@
----
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: caturday
----
+# ---
+# apiVersion: v1
+# kind: Namespace
+# metadata:
+#   name: caturday
+# ---
 apiVersion: v1
 kind: Service
 metadata:
   name: caturday
-  namespace: caturday
   labels:
     app: caturday
 spec:
@@ -16,7 +15,8 @@ spec:
     app: caturday
   ports:
     - name: caturday
-      port: 8080
+      port: 8190
+      targetPort: 8080
       protocol: TCP
 ---
 # apiVersion: extensions/v1beta1
@@ -41,15 +41,14 @@ spec:
 #         - "kittens.local"
 #       secretName: caturday
 # ---
-apiVersion: apps/v1beta2
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: caturday
-  namespace: caturday
   labels:
     app: catrday
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: caturday
@@ -60,7 +59,7 @@ spec:
     spec:
       containers:
       - name: caturday
-        image: docker.io/fntlnz/caturday:latest
+        image: 837924269795.dkr.ecr.eu-west-1.amazonaws.com/tr_caturday:latest
         resources:
           limits:
             cpu: 0.1

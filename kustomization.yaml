@@ -1,0 +1,4 @@
+namespace: jenkins
+
+resources:
+  - caturday.yml
