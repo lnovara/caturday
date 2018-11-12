@@ -19,28 +19,28 @@ spec:
       port: 8080
       protocol: TCP
 ---
-apiVersion: extensions/v1beta1
-kind: Ingress
-metadata:
-  annotations:
-    kubernetes.io/ingress.class: nginx
-    kubernetes.io/tls-acme: 'true'
-  name: caturday
-  namespace: caturday
-spec:
-  rules:
-    - host: kittens.local
-      http:
-        paths:
-          - backend:
-              serviceName: caturday
-              servicePort: 8080
-            path: /
-  tls:
-    - hosts:
-        - "kittens.local"
-      secretName: caturday
----
+# apiVersion: extensions/v1beta1
+# kind: Ingress
+# metadata:
+#   annotations:
+#     kubernetes.io/ingress.class: nginx
+#     kubernetes.io/tls-acme: 'true'
+#   name: caturday
+#   namespace: caturday
+# spec:
+#   rules:
+#     - host: kittens.local
+#       http:
+#         paths:
+#           - backend:
+#               serviceName: caturday
+#               servicePort: 8080
+#             path: /
+#   tls:
+#     - hosts:
+#         - "kittens.local"
+#       secretName: caturday
+# ---
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
