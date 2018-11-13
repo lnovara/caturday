@@ -1,4 +1,4 @@
-namespace: jenkins
+namespace: staging
 
 resources:
   - caturday.yml
